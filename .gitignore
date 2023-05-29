@@ -6,6 +6,8 @@ venv/
 
 #outputted summary notes
 notes*.txt
+#outtputted batch folders
+batch_processed*/
 
 #temp notes
 temp*.txt
