@@ -12,13 +12,14 @@ processor = SubtitleProcessor()
 path = "model"
 # Check whether the specified path (model/) exists or not
 isExist = os.path.exists(path)
-print("natural language processing model already saved")
 if not isExist:
     # if directory does not exist, create directory and import and save SentenceTransformer model
     os.makedirs(path)
     model = SentenceTransformer('all-mpnet-base-v2')
     model.save('model/')
     print("model directory is created and natural language processing model saved")
+else: 
+    print("natural language processing model already saved")
 
 #get filenames of all vtt files in input folder
 filenames = glob.glob('input/*.vtt')
@@ -34,4 +35,4 @@ for input_file_path in filenames:
     print(f"subtitle file: {input_file_path} successfully processed")
 print(f"all .vtt files in input folder processed, bye bye")
 
-#python3 orchestrator_function_advanced.py
+#python3 orchestrator_function.py

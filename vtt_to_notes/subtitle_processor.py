@@ -1,5 +1,5 @@
 import re
-import pandas as pd
+# import pandas as pd
 import numpy as np
 # Library to import pre-trained model for sentence embeddings
 from sentence_transformers import SentenceTransformer

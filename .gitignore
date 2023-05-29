@@ -12,3 +12,5 @@ temp*.txt
 
 #model files
 model/
+.vscode/settings.json
+vtt_to_notes/__pycache__/subtitle_processor.cpython-311.pyc
