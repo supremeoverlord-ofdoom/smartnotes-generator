@@ -32,6 +32,8 @@ archive_destination = 'input/processed_files'
 for input_file_path in filenames: 
     base_name = os.path.splitext(os.path.basename(input_file_path))[0]  # Extract base file name of input file
     current_date = datetime.datetime.now().strftime("%Y%m%d") # Get current date
+    date_time = datetime.datetime.now.strftime("%m/%d/%Y_%H:%M:%S") #get date and time for output folder for batch
+    output_file = 
     output_file_path = f'output/notes_{base_name}_{current_date}.txt' #concat unqique file name for output_file
     processor.process_subtitles(input_file_path, output_file_path) #apply function process_subtitles 
     print(f"subtitle file: {input_file_path} successfully processed")
