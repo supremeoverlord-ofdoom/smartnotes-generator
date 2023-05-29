@@ -1,0 +1,7 @@
+pandas
+numpy
+sentence_transformers
+seaborn
+sklearn
+scipy
+matplotlib

@@ -1,0 +1,14 @@
+#Python virtual environment
+.venv/
+
+#input files
+*.vtt
+
+#outputted summary notes
+notes*.txt
+
+#temp notes
+temp*.txt
+
+#model files
+model/
