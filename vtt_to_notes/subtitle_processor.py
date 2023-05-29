@@ -105,6 +105,7 @@ class SubtitleProcessor:
         return similarities
     
     # find splitting points
+    # I'm not a data scientist and math is scary, so using this function, the source code can be found: https://github.com/poloniki/quint
     def rev_sigmoid(self, x:float)->float:
         return (1 / (1 + math.exp(0.5*x)))
     
