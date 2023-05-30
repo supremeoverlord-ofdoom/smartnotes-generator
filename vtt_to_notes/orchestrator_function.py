@@ -16,7 +16,7 @@ isExist = os.path.exists(path)
 if not isExist:
     # if directory does not exist, create directory and import and save SentenceTransformer model
     os.makedirs(path)
-    model = SentenceTransformer('all-mpnet-base-v2')
+    model = SentenceTransformer('all-mpnet-base-v2') #this model is big so if you don't have much local storage just delete the models folder after running script
     model.save('model/')
     print("model directory is created and natural language processing model saved")
 else: 
@@ -25,8 +25,6 @@ else:
 #get filenames of all vtt files in input folder
 filenames = glob.glob('input/*.vtt')
 # print(filenames)
-#store location of files to go once processed
-# archive_destination = 'input/processed_files'
 
 
 #only run loop if inputs folder has .vtt files inside it
@@ -51,6 +49,7 @@ else:
         shutil.move(input_file_path, input_batch_folder) #move input files into an archive folder
     print(f"all .vtt files in input folder processed, bye bye")
 
+#command to run script
 #python3 orchestrator_function.py
 
 
