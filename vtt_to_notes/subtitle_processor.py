@@ -72,20 +72,24 @@ class SubtitleProcessor:
         # find longest outlier
         long = np.mean(sentence_length) + np.std(sentence_length) *2
         # find shortest outlier
-        short = np.mean(sentence_length) - np.std(sentence_length) *2
+        short = (np.mean(sentence_length) - np.std(sentence_length) *2)*-1
+        #fixing negatives in short
+        if short < 0:
+            short = (short)*-1 #cancel out negative
+        else:
+            short = (short)*1
         # Shorten the long sentences
         text = ''
         for each in sentence_text:
-            if len(each) > long:
-                # replace all the commas with dots
-                comma_splitted = each.replace(',', '.')
+            if len(each) >= long:
+                text+= f'{each}. '
             else:
                 text+= f'{each}. '
         sentence_text = text.split('. ')
         # concatenate short ones
         text = ''
         for each in sentence_text:
-            if len(each) < short:
+            if len(each) <= short:
                 text+= f'{each} '
             else:
                 text+= f'{each}. '
@@ -96,7 +100,6 @@ class SubtitleProcessor:
         # Embed the sentences
         model = SentenceTransformer.load('model/')
         embeddings = model.encode(uniform_sentences)
-        
         return embeddings, uniform_sentences
     
     def similarities_matrix(self, embeddings):
@@ -148,7 +151,6 @@ class SubtitleProcessor:
                 text+=f'\n\n {each}. '
             else:
                 text+=f'{each}. '
-        # print(text)
         return text
         
     def process_subtitles(self, input_file_path, output_file_path):
